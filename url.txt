@@ -1,1 +1,3 @@
 http://flip2.engr.oregonstate.edu:8362/
+
+https://community-hall-planner.herokuapp.com/ 

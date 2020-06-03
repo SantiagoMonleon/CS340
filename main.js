@@ -8,10 +8,10 @@ app.set('view engine', 'handlebars');
 app.engine('handlebars', handlebars.engine);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.set('port', process.argv[2]);
 app.set('mysql', mysql);
 app.use(express.static('public'));
 
+const port = process.env.PORT || 8301;
 
 app.use('/classes', require('./classes'));
 app.use('/instructors', require('./instructors'));
@@ -30,7 +30,7 @@ app.use(function(err, req, res, next){
   res.render('500');
 });
 
-app.listen(app.get('port'), function(){
-  console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
+app.listen(port, function(){
+  console.log('Server started on port ' + port);
 });
 
