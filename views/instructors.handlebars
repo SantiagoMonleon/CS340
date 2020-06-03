@@ -1,0 +1,71 @@
+
+<section>
+    <h2>List of All Instructors</h2>
+</section>
+
+
+<section>
+    <form id="addInstructor" action="/instructors" method="POST">
+        <fieldset>
+            <legend>ADD NEW CLASS FORM</legend>
+            <div>
+                <label>First Name:
+                    <input type="text" name="first_name" size="25" maxlength="30">
+                </label>
+            </div>
+            <div>
+                <label>Last Name:
+                    <input type="text" name="last_name" size="25" maxlength="30">
+                </label>
+            </div>
+            <div>
+                <label>Title:
+                    <input type="text" name="title" size="25" maxlength="30">
+                </label>
+            </div>
+            <div>
+                <label>Bio:
+                    <input type="text" name="bio" size="30" maxlength="200">
+                </label>
+            </div>
+            <div>
+                <input id="addInstructor_submit" type="submit" name="submit_type" value="Add Instructor">
+            </div>
+        </fieldset>
+    </form>
+    <br>
+</section>
+
+<section>
+    <fieldset>
+        <legend>INSTRUCTOR LIST:</legend>
+        <table>
+        <thead> 
+            <th>Instructor ID #</th> 
+            <th>First Name</th> 
+            <th>Last Name</th>
+            <th>Title</th> 
+            <th>Bio</th> 
+            <th></th>  
+        </thead> 
+        <tbody>
+            {{#each instructors}} 
+            <tr> 
+                <td>{{instructorID}}</td> 
+                <td>{{first_name}}</td> 
+                <td>{{last_name}}</td> 
+                <td>{{title}}</td>
+                <td>{{bio}}</td>
+                <td>
+                    <form id="deleteInstructor" action="/instructors" method="POST">
+                        <input type="hidden" name="instructor_choice" value={{instructorID}}>
+                        <input id="deleteInstructor_submit" type="submit" name="submit_type" value="Delete Instructor">
+                    </form>
+                </td>
+            </tr> 
+            {{/each}} 
+        </tbody> 
+        </table> 
+        <br>
+    </fieldset>
+</section>

@@ -1,0 +1,79 @@
+<section>
+    <h1>List of Classes</h1>
+    <h3>List of all classes being offered</h3>
+</section>
+
+<br>
+
+<section>
+    <form id="addclass" action="/classes" method="POST">
+        <fieldset>
+            <legend>ADD NEW CLASS FORM</legend>
+            <div>
+                <label>Class Title:
+                    <input type="text" name="class_title_input" size="30" maxlength="100">
+                </label>
+            </div>
+            <div>
+                <label>Start Time:
+                    <input type="text" name="start_time" size="20" maxlength="8">
+                </label>
+            </div>
+            <div>
+                <label>End Time:
+                    <input type="text" name="end_time" size="20" maxlength="8">
+                </label>
+            </div>
+            <div>
+                <label>Select Days:
+                    <input type="text" name="day_input" size="10" maxlength="20">
+                </label>
+            </div>
+            <div>
+                <label>Capacity:
+                    <input type="number" name="capacity_input" size="10" maxlength="20">
+                </label>
+            </div>
+            <div>
+                <input id="addclass" type="submit" name="submit_type" value="Add Class">
+            </div>
+        </fieldset>
+    </form>
+    <br>
+</section>
+
+<section>
+    <fieldset>
+        <legend>CURRENT ACTIVE CLASSES</legend>
+        <table>
+        <thead> 
+            <th>Class ID #</th> 
+            <th>Title</th> 
+            <th>Start Time</th>
+            <th>End Time</th> 
+            <th>Class Days:</th> 
+            <th>Capacity</th>
+            <th></th>  
+        </thead> 
+        <tbody>
+            {{#each classes}} 
+            <tr> 
+                <td>{{classID}}</td> 
+                <td>{{title}}</td> 
+                <td>{{start_at}}</td> 
+                <td>{{end_at}}</td>
+                <td>{{day}}</td>
+                <td>{{capacity}}</td>
+                <td>
+                    <form id="deleteClass" action="/classes" method="POST">
+                        <input type="hidden" name="class_choice" value={{classID}}>
+                        <input id="deleteClass" type="submit" name="submit_type" value="Delete Class">
+                    </form>
+                </td>
+            </tr> 
+            {{/each}} 
+        </tbody> 
+        </table> 
+        <br>
+    </fieldset>
+</section>

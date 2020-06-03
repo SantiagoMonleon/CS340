@@ -1,0 +1,42 @@
+<section>
+    <h1>Update Classroom</h1>
+</section>
+
+
+<section>
+    <form id="addclassroom" action="/updateClassroom" method="POST">
+        <fieldset>
+            <legend>UPDATE CLASS</legend>
+            <div>
+                <label>Room Name:
+                    <input type="text" name="room_name" size="30" maxlength="100">
+                </label>
+            </div>
+            <div>
+                <label>Room Number:
+                    <input type="number" name="room_number" size="10" maxlength="20" required>
+                </label>
+            </div>
+            <div>
+                <label>Capacity:
+                    <input type="number" name="capacity" size="30" maxlength="100">
+                </label>
+            </div>
+            <div>
+                <label>Number of Outlets:
+                    <input type="number" name="num_outlets" size="10" maxlength="20">
+                </label>
+            </div>
+            <div>
+                <label>Number of Doors:
+                    <input type="number" name="num_doors" size="10" maxlength="20">
+                </label>
+            </div>
+            <div>
+                <input type="hidden" name="classroom_id" value={{classroomID}}>
+                <input id="updateClassroom" type="submit" name="submit_type" value="Update Classroom">
+            </div>
+        </fieldset>
+    </form>
+    <br>
+</section>

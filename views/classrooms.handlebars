@@ -1,0 +1,40 @@
+<section>
+    <h2>List of All Classrooms</h2>
+</section>
+
+<section>
+    <fieldset>
+        <legend>Classrooms</legend>
+            <table>
+            <thead>
+                <tr>
+                    <th><string>Classroom ID</strong></th>
+                    <th><strong>Room Name:</strong></th>
+                    <th><strong>Room Number:</strong></th>
+                    <th><strong>Capacity:</strong></th>
+                    <th><strong>Number of Outlets:</strong></th>
+                    <th><strong>Number of Doors:</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each classrooms}} 
+                <tr>
+                    <td>{{classroomID}}</td>
+                    <td>{{room_name}}</td>
+                    <td>{{room_number}}</td>
+                    <td>{{capacity}}</td>
+                    <td>{{num_outlets}}</td>
+                    <td>{{num_doors}}</td>
+                    <td>
+                        <form id="updateClassroom" action="/updateClassroom" method="GET">
+                            <input type="hidden" name="classroom_choice" value={{classroomID}}>
+                            <input id="updateClassroomSubmit" type="submit" name="submit_type" value="Update">
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}        
+            </tbody>
+            </table>
+    </fieldset>
+</section>
+   
